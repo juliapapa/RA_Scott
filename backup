@@ -1,0 +1,173 @@
+#### DATASUS ####
+### Júlia Papa Gonçalves Mão Cheia
+
+
+### setup
+
+install.packages("remotes")
+install.packages('data.table')
+remotes::install_github("rfsaldanha/microdatasus")
+library(microdatasus)
+library(openxlsx)
+
+## referencia do pacote
+ 
+# SALDANHA, Raphael de Freitas; BASTOS, Ronaldo Rocha; BARCELLOS, Christovam.
+# Microdatasus: pacote para download e pré-processamento de microdados do
+# Departamento de Informática do SUS (DATASUS). Cad. Saúde Pública, Rio de
+# Janeiro , v. 35, n. 9, e00032419, 2019. Available from http://ref.scielo.org/dhcq3y.
+
+
+## Processamento dos dados
+
+## sim (dados sobre mortalidade)
+
+dados_sim <- fetch_datasus(year_start = 2016, year_end = 2023,
+                           uf = "RJ", information_system = "SIM-DO")
+dados_sim <- process_sim(dados_sim, municipality_data = TRUE)
+
+# exportar para o excel
+
+write.xlsx(dados_sim,'C:/Users/kalau/OneDrive/Documentos/RA_Scott/dados_sim.xlsx')
+
+
+# sih (dados sobre hospitalizações)
+
+dados_sih_ac <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "AC", information_system = "SIH-RD") 
+dados_sih_ap <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "AP", information_system = "SIH-RD") 
+dados_sih_am <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "AM", information_system = "SIH-RD") 
+dados_sih_ba <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "BA", information_system = "SIH-RD") 
+dados_sih_ce <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "CE", information_system = "SIH-RD") 
+dados_sih_df <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "DF", information_system = "SIH-RD")
+dados_sih_es <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "ES", information_system = "SIH-RD")
+dados_sih_go <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "GO", information_system = "SIH-RD")
+dados_sih_ma <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "MA", information_system = "SIH-RD")
+dados_sih_mt <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "MT", information_system = "SIH-RD")
+dados_sih_ms <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "MS", information_system = "SIH-RD")
+dados_sih_mg <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "MG", information_system = "SIH-RD")
+dados_sih_pa <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "PA", information_system = "SIH-RD")
+dados_sih_pb <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "PB", information_system = "SIH-RD") 
+dados_sih_pe <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "PE", information_system = "SIH-RD")
+dados_sih_pi <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "PI", information_system = "SIH-RD")
+dados_sih_pr <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "PR", information_system = "SIH-RD")
+dados_sih_rj <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "RJ", information_system = "SIH-RD")
+dados_sih_rn <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "RN", information_system = "SIH-RD")
+dados_sih_rs <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "RS", information_system = "SIH-RD")
+dados_sih_ro <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "RO", information_system = "SIH-RD")
+dados_sih_rr <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "RR", information_system = "SIH-RD")
+dados_sih_sc <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "SC", information_system = "SIH-RD")
+dados_sih_sp <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2022, month_end = 12,
+                uf = "SP", information_system = "SIH-RD")
+dados_sih_se <-  fetch_datasus(year_start = 2016, month_start = 1, year_end = 2023, month_end = 12,
+                uf = "SE", information_system = "SIH-RD")
+dados_sih_to <- fetch_datasus(year_start = 2016, month_start = 1, year_end = 2023, month_end = 12,
+                uf = "TO", information_system = "SIH-RD")
+  
+dados_sih_ac <- process_sih(dados_sih_ac, municipality_data = TRUE)
+dados_sih_ap <- process_sih(dados_sih_ap, municipality_data = TRUE)
+dados_sih_am <- process_sih(dados_sih_am, municipality_data = TRUE)
+dados_sih_ba <- process_sih(dados_sih_ba, municipality_data = TRUE)
+dados_sih_ce <- process_sih(dados_sih_ce, municipality_data = TRUE)
+
+
+dados_sih_df <- process_sih(dados_sih_df, municipality_data = TRUE)
+dados_sih_es <- process_sih(dados_sih_es, municipality_data = TRUE)
+dados_sih_go <- process_sih(dados_sih_go, municipality_data = TRUE)
+dados_sih_ma <- process_sih(dados_sih_ma, municipality_data = TRUE)
+dados_sih_mt <- process_sih(dados_sih_mt, municipality_data = TRUE)
+dados_sih_ms <- process_sih(dados_sih_ms, municipality_data = TRUE)
+dados_sih_mg <- process_sih(dados_sih_mg, municipality_data = TRUE)
+dados_sih_pa <- process_sih(dados_sih_pa, municipality_data = TRUE)
+dados_sih_pb <- process_sih(dados_sih_pb, municipality_data = TRUE)
+dados_sih_pi <- process_sih(dados_sih_pi, municipality_data = TRUE)
+dados_sih_pe <- process_sih(dados_sih_pe, municipality_data = TRUE)
+dados_sih_pr <- process_sih(dados_sih_pr, municipality_data = TRUE)
+dados_sih_rj <- process_sih(dados_sih_rj, municipality_data = TRUE)
+dados_sih_rn <- process_sih(dados_sih_rn, municipality_data = TRUE)
+dados_sih_rs <- process_sih(dados_sih_rs, municipality_data = TRUE)
+dados_sih_ro <- process_sih(dados_sih_ro, municipality_data = TRUE)
+dados_sih_rr <- process_sih(dados_sih_rr, municipality_data = TRUE)
+dados_sih_sc <- process_sih(dados_sih_sc, municipality_data = TRUE)
+dados_sih_sp <- process_sih(dados_sih_sp, municipality_data = TRUE)
+dados_sih_se <- process_sih(dados_sih_se, municipality_data = TRUE)
+dados_sih_to <- process_sih(dados_sih_to, municipality_data = TRUE)
+
+# sinasc (dados sobre nascimentos + informações sobre as mães - especialmente escolaridade)
+
+dados_sinasc_ac <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "AC", information_system = "SINASC") 
+dados_sinasc_al <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "AL", information_system = "SINASC") 
+dados_sinasc_am <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "AM", information_system = "SINASC") 
+dados_sinasc_ba <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "BA", information_system = "SINASC") 
+dados_sinasc_ce <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "CE", information_system = "SINASC") 
+dados_sinasc_df <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "DF", information_system = "SINASC") 
+dados_sinasc_es <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "ES", information_system = "SINASC") 
+dados_sinasc_go <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "GO", information_system = "SINASC") 
+dados_sinasc_ma <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "MA", information_system = "SINASC") 
+dados_sinasc_mt <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "MT", information_system = "SINASC") 
+dados_sinasc_ms <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "MS", information_system = "SINASC") 
+dados_sinasc_mg <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "MG", information_system = "SINASC") 
+dados_sinasc_pa <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "PA", information_system = "SINASC") 
+dados_sinasc_pb <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "PB", information_system = "SINASC") 
+dados_sinasc_pe <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "PE", information_system = "SINASC") 
+dados_sinasc_pi <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "PI", information_system = "SINASC") 
+dados_sinasc_pr <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "PR", information_system = "SINASC") 
+dados_sinasc_rj <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "RJ", information_system = "SINASC") 
+dados_sinasc_rn <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "RN", information_system = "SINASC") 
+dados_sinasc_rs <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "RS", information_system = "SINASC") 
+dados_sinasc_ro <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "RO", information_system = "SINASC") 
+dados_sinasc_rr <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "RR", information_system = "SINASC") 
+dados_sinasc_sc <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "SC", information_system = "SINASC") 
+dados_sinasc_sp <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "SP", information_system = "SINASC") 
+dados_sinasc_se <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "SE", information_system = "SINASC") 
+dados_sinasc_to <- fetch_datasus(year_start = 2011, year_end = 2023,
+                uf = "TO", information_system = "SINASC")
+
+dados_sinasc <- process_sinasc(dados_sinasc, municipality_data = TRUE)
